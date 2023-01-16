@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <main>
+
+            <div class="game-controls">
+                <span class="btn play-btn">Play</span>
+                <span class="btn restart-btn">Restart</span>
+            </div>
+
+            <div class="game-container">    
+
+                <div class="question-container">
+                    <p class="current-question"></p>
+                </div>
+
+                <div class="progress-container">
+                    <div class="progress-content">
+                        <p class="status-message"></p>
+                        <div class="progress-img"></div>
+                        <span class="btn help-btn">Help</span>
+                        <p class="score"></p>
+                    </div>
+                    
+                    <div class="help-module">
+                        <span class="help-fiftyfifty">50/50</span>
+                        <span class="help-ask">Ask the audience</span>
+                        <span class="help-call">Call a friend</span>
+                    </div>
+                </div>
+
+                <div class="answers-container">
+                    <div class="btn-row">
+                        <span class="btn answer-btn firstAnswer"></span>
+                        <span class="btn answer-btn secondAnswer"></span>
+                    </div>
+                    <div class="btn-row">
+                        <span class="btn answer-btn thirdAnswer"></span>
+                        <span class="btn answer-btn fourthAnswer"></span>
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+        <script src="gameConfig.js"></script>
+        <script src="questions.js"></script>
+        <script src="app.js"></script>
+    </body>
+</html>
