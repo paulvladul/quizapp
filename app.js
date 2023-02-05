@@ -17,12 +17,13 @@ var remainingRounds = [...roundsArray];
 var questionIndex;
 var helpFifty = document.querySelector('.help-fiftyfifty');
 var helpCall = document.querySelector('.help-call');
+var lastScoreDisplay = document.querySelector('.last-score');
+var lastScore;
 
 var nextLevel = function(){
     if(remainingRounds.length !== 0) {
         roundNumber++;
-        console.log(roundNumber);
-        score.innerText = "Round " + roundNumber + ' of ' + roundsArray.length;
+        score.innerText = "Round " + roundNumber + '/' + roundsArray.length;
         statusMessage.innerText = '';
         randomQuestion = remainingRounds[Math.floor(Math.random()*remainingRounds.length)];
         currentQuestion.innerText = randomQuestion.question;
@@ -54,6 +55,7 @@ var nextLevel = function(){
 
     } else {
         currentQuestion.innerHTML = 'Winner!!!<br> Your time:' ;
+        localStorage.setItem('lastScore', roundNumber);
     }
 }
 
@@ -77,8 +79,20 @@ var checkAnswer = function(){
         window.setTimeout(nextLevel, 500);
     } else {
         this.classList.add('wrong-answer-btn');
-        statusMessage.innerText = 'Game Over';
+        gameOver();
         return
+    }
+}
+
+var gameOver = function(){
+    statusMessage.innerText = 'Game Over';
+    localStorage.setItem('lastScore', roundNumber);
+}
+
+var getLastScore = function(){
+    lastScore = localStorage.getItem('lastScore');
+    if(lastScore !== null) {
+        lastScoreDisplay.innerHTML = 'Last score: ' + lastScore;
     }
 }
 
@@ -88,6 +102,7 @@ var timer = function(time){
 
 var startGame = function(){
     gameContainer.classList.add('game-container-started');
+    getLastScore();
     started = true;
     if(started = true) {
         playBtn.style.display = 'none';
@@ -101,6 +116,7 @@ var restartGame = function(){
     roundNumber = 0;
     clearLevel();
     nextLevel();
+    getLastScore();
 }
 
 helpBtn.addEventListener('mouseover', function(){

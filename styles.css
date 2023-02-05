@@ -6,6 +6,7 @@
     --blue: rgb(42, 92, 116);
     --yellow: rgb(195 179 37);
     --red: #a34848;
+    --hoverBg: #1376c5;
 
     --blue-gray-1: #F2F6F8;
     --blue-gray-2: #E4EAEE;
@@ -44,7 +45,7 @@ body {
     color: #fff;
     font-size: 18px;
     font-weight: bolder;
-    /* border: 2px solid var(--blue-gray-10); */
+    border: 2px solid var(--blue-gray-10);
     border-radius: 5px;
     padding: 5px 10px;
     text-transform: uppercase;
@@ -54,7 +55,7 @@ body {
 }
 
 .btn:hover {
-    background: none;
+    background: var(--hoverBg);
     -webkit-box-shadow: 1px 1px 13px 0px rgba(0,0,0,0.63); 
     box-shadow: 1px 1px 13px 0px rgba(0,0,0,0.63);
     text-shadow: 2px 2px 4px rgba(0,0,0,0.82);
@@ -77,15 +78,16 @@ body {
     animation: slide-in-from-right 0.5s linear forwards;
     font-size: 14px;
     background: var(--darkgreen);
-    border: 1px solid transparent;
+    /* border: 1px solid transparent; */
+    padding: 5px 10px;
+    cursor: pointer;
 }
 
-.help-btn:hover{
+/* .help-btn:hover{
     -webkit-box-shadow: none; 
     box-shadow: none;
     text-shadow: none;
-    border: 1px solid var(--blue-gray-11)
-}
+} */
 
 .help-module {
     display: flex;
@@ -122,7 +124,7 @@ body {
 }
 
 main {
-    padding: 50px;
+    padding: 2%;
     width: 100%;
     height: 100%;
 }
@@ -143,7 +145,7 @@ main {
 
 .game-container {
     width: 80%;
-    max-width: 500px;
+    max-width: 650px;
     height: 500px;
     margin: 50px auto;
     background: rgb(40, 41, 41);
@@ -243,6 +245,14 @@ main {
     position: absolute;
     top: 15px;
     left: 15px;
+    font-size: 16px;
+    transition: all 0.08s linear;
+}
+
+.last-score {
+    position: absolute;
+    top: 15px;
+    right: 15px;
     font-size: 16px;
     transition: all 0.08s linear;
 }
